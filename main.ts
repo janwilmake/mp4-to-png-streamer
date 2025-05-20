@@ -2,7 +2,7 @@
 /// <reference types="@cloudflare/workers-types" />
 import MP4Box from "mp4box";
 import { H264Decoder } from "h264decoder";
-import * as UPNG from "./UPNG";
+import { UPNG } from "./UPNG";
 
 // Configuration
 const FRAME_INTERVAL_SECONDS = 1;
@@ -163,7 +163,7 @@ async function processVideo(
       );
     }
 
-    const reader = response.body.getReader();
+    const reader = response.body!.getReader();
     let offset = 0;
 
     while (true) {

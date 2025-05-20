@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "h264decoder": "^1.0.0",
+    "mp4box": "^0.5.4"
+  }
+}

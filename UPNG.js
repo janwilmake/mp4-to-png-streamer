@@ -1779,7 +1779,12 @@ var UPNG = (function () {
     var opts;
     if (levelZero) opts = { level: 0 };
 
-    var CMPR = data.length > 10e6 && window.UZIP != null ? window.UZIP : pako;
+    var CMPR =
+      data.length > 10e6 &&
+      typeof globalThis !== "undefined" &&
+      globalThis.UZIP != null
+        ? globalThis.UZIP
+        : pako;
 
     var time = Date.now();
     for (var i = 0; i < ftry.length; i++) {
@@ -2299,3 +2304,5 @@ var UPNG = (function () {
   UPNG.quantize.getKDtree = getKDtree;
   UPNG.quantize.getNearest = getNearest;
 })();
+
+export { UPNG };
